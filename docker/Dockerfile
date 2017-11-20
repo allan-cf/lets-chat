@@ -13,7 +13,7 @@ RUN set -x \
 &&  apt-get update \
 &&  apt-get install -y $BUILD_DEPS --no-install-recommends \
 &&  rm -rf /var/lib/apt/lists/* \
-&&  npm install --production --unsafe-perm\
+&&  npm install --production --unsafe-perm \
 &&  npm dedupe \
 &&  rm -rf /tmp/npm* \
 &&  apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false -o APT::AutoRemove::SuggestsImportant=false $BUILD_DEPS
