@@ -4,6 +4,9 @@
   "description": "A chat app for small teams.",
   "license": "MIT",
   "main": "app.js",
+  "config": {
+    "unsafe-perm":true
+  },
   "scripts": {
     "grunt": "grunt",
     "start": "node app.js",
@@ -56,9 +59,6 @@
     "chat",
     "group chat"
   ],
-  "config": {
-    "unsafe-perm":true
-  },
   "bugs": {
     "url": "https://github.com/sdelements/lets-chat/issues"
   },
