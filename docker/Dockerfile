@@ -30,7 +30,9 @@ RUN mkdir -p builtAssets
 RUN mkdir -p /instana
 WORKDIR /instana
 RUN apt-get update
-RUN apt-get install python -y
+RUN apt-get install python -y \
+&&  apt-get install build-essential
+
 RUN npm install --save instana-nodejs-sensor
 
 ENV LCB_DATABASE_URI=mongodb://mongo/letschat \
