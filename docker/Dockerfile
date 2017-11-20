@@ -26,14 +26,6 @@ RUN tar -xzvf master.tar.gz \
 
 RUN mkdir -p builtAssets
 
-RUN mkdir -p /instana
-WORKDIR /instana
-RUN apt-get update
-RUN apt-get install python -y \
-&&  apt-get install build-essential -y
-
-RUN npm install --save instana-nodejs-sensor --unsafe-perm
-
 ENV LCB_DATABASE_URI=mongodb://mongo/letschat \
     LCB_HTTP_HOST=0.0.0.0 \
     LCB_HTTP_PORT=8080 \
@@ -44,5 +36,13 @@ EXPOSE 8080 5222
 
 VOLUME ["/usr/src/app/config"]
 VOLUME ["/usr/src/app/uploads"]
+
+RUN mkdir -p /instana
+WORKDIR /instana
+RUN apt-get update
+RUN apt-get install python -y \
+&&  apt-get install build-essential -y
+
+RUN npm install --save instana-nodejs-sensor --unsafe-perm
 
 CMD ["node", "app.js"]
