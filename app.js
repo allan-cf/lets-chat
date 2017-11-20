@@ -6,6 +6,8 @@
 
 process.title = 'letschat';
 
+require('instana-nodejs-sensor')();
+
 require('colors');
 
 var _ = require('lodash'),
