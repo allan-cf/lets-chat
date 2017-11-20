@@ -1,6 +1,6 @@
 FROM yarnpkg/node-yarn
 
-ENV PKG_JSON_URL=https://raw.githubusercontent.com/sdelements/lets-chat/master/package.json \
+ENV PKG_JSON_URL=https://github.com/allan-cf/lets-chat/blob/master/package.json \
     TAR_GZ_URL=https://github.com/sdelements/lets-chat/archive/master.tar.gz \
     BUILD_DEPS='g++ gcc git make python'
 
@@ -11,7 +11,7 @@ ADD $PKG_JSON_URL ./package.json
 
 RUN set -x \
 &&  apt-get update \
-&&  apt-get install -y $BUILD_DEPS --no-install-recommends \
+&&  apt-get install -y $BUILD_DEPS --no-install-recommends --unsafe-perm\
 &&  rm -rf /var/lib/apt/lists/* \
 &&  npm install --production \
 &&  npm install $LCB_PLUGINS \
