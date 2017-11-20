@@ -1,4 +1,4 @@
-FROM node-yarn
+FROM yarnpkg/node-yarn
 
 ENV PKG_JSON_URL=https://raw.githubusercontent.com/sdelements/lets-chat/master/package.json \
     TAR_GZ_URL=https://github.com/sdelements/lets-chat/archive/master.tar.gz \
