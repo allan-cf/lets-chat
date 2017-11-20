@@ -37,8 +37,6 @@ EXPOSE 8080 5222
 VOLUME ["/usr/src/app/config"]
 VOLUME ["/usr/src/app/uploads"]
 
-RUN mkdir -p /instana
-WORKDIR /instana
 RUN apt-get update
 RUN apt-get install python -y \
 &&  apt-get install build-essential -y
