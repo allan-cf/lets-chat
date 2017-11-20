@@ -1,10 +1,8 @@
-FROM node:0.12-slim
-MAINTAINER SD Elements
+FROM node:8
 
 ENV PKG_JSON_URL=https://raw.githubusercontent.com/sdelements/lets-chat/master/package.json \
     TAR_GZ_URL=https://github.com/sdelements/lets-chat/archive/master.tar.gz \
-    BUILD_DEPS='g++ gcc git make python' \
-    LCB_PLUGINS='lets-chat-ldap lets-chat-s3'
+    BUILD_DEPS='g++ gcc git make python'
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
@@ -28,11 +26,7 @@ RUN tar -xzvf master.tar.gz \
 &&  cp -a lets-chat-master/. . \
 &&  rm -rf lets-chat-master
 
-RUN groupadd -r node \
-&&  useradd -r -g node node \
-&&  chown node:node uploads \
-&&  mkdir -p builtAssets \
-&&  chown node:node builtAssets
+RUN mkdir -p builtAssets
 
 ENV LCB_DATABASE_URI=mongodb://mongo/letschat \
     LCB_HTTP_HOST=0.0.0.0 \
@@ -40,11 +34,9 @@ ENV LCB_DATABASE_URI=mongodb://mongo/letschat \
     LCB_XMPP_ENABLE=true \
     LCB_XMPP_PORT=5222
 
-USER node
-
 EXPOSE 8080 5222
 
 VOLUME ["/usr/src/app/config"]
 VOLUME ["/usr/src/app/uploads"]
 
-CMD ["npm", "start"]
+CMD ["node", "app.js"]
