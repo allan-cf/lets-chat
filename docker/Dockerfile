@@ -30,7 +30,7 @@ RUN mkdir -p /instana
 WORKDIR /instana
 RUN apt-get update
 RUN apt-get install python -y \
-&&  apt-get install build-essential
+&&  apt-get install build-essential -y
 
 RUN npm install --save instana-nodejs-sensor --unsafe-perm
 
