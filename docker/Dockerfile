@@ -1,6 +1,6 @@
 FROM yarnpkg/node-yarn
 
-ENV PKG_JSON_URL=https://github.com/allan-cf/lets-chat/blob/master/package.json \
+ENV PKG_JSON_URL=https://raw.githubusercontent.com/allan-cf/lets-chat/master/package.json \
     TAR_GZ_URL=https://github.com/sdelements/lets-chat/archive/master.tar.gz \
     BUILD_DEPS='g++ gcc git make python'
 
