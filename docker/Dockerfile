@@ -27,6 +27,8 @@ RUN tar -xzvf master.tar.gz \
 
 RUN mkdir -p builtAssets
 
+npm install --save instana-nodejs-sensor
+
 ENV LCB_DATABASE_URI=mongodb://mongo/letschat \
     LCB_HTTP_HOST=0.0.0.0 \
     LCB_HTTP_PORT=8080 \
