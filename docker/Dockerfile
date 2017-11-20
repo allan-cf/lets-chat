@@ -27,6 +27,7 @@ RUN tar -xzvf master.tar.gz \
 
 RUN mkdir -p builtAssets
 
+WORKDIR /instana
 RUN npm install --save instana-nodejs-sensor
 
 ENV LCB_DATABASE_URI=mongodb://mongo/letschat \
