@@ -4,6 +4,9 @@
   "description": "A chat app for small teams.",
   "license": "MIT",
   "main": "app.js",
+  "config": {
+    "unsafe-perm":true
+  },
   "scripts": {
     "grunt": "grunt",
     "start": "node app.js",
